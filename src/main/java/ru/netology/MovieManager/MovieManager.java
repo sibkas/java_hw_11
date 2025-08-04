@@ -25,7 +25,13 @@ public class MovieManager {
     }
 
     public String[] findLast() {
-        int resultLength = Math.min(limit, movie.length);
+        int resultLength;
+        if (limit < movie.length) {
+            resultLength = limit;
+        } else {
+            resultLength = movie.length;
+        }
+
         String[] result = new String[resultLength];
         for (int i = 0; i < resultLength; i++) {
             result[i] = movie[movie.length - 1 - i];
